@@ -193,7 +193,7 @@ function App() {
                     <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
                         <input
                             type="file"
-                            accept=".bin"
+                            accept=".ini"
                             onChange={handleFileChange}
                             className="block w-full text-sm text-gray-300
                             file:mr-4 file:py-2 file:px-4
