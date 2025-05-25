@@ -1,9 +1,12 @@
 {
   "files": {
-    "main.js": "/8U2-mapper/static/js/main.31d6cfe0.js",
-    "index.html": "/8U2-mapper/index.html"
+    "main.css": "/8U2-mapper/static/css/main.31d6cfe0.css",
+    "main.js": "/8U2-mapper/static/js/main.ac21ae2e.js",
+    "index.html": "/8U2-mapper/index.html",
+    "main.ac21ae2e.js.map": "/8U2-mapper/static/js/main.ac21ae2e.js.map"
   },
   "entrypoints": [
-    "static/js/main.31d6cfe0.js"
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.ac21ae2e.js"
   ]
 }
