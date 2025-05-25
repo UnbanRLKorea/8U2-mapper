@@ -1,0 +1,67 @@
+.gitignore 파일이 비어 있다면, Git이 프로젝트의 모든 파일을 추적하려고 할 거예요. 이렇게 되면 불필요한 파일이나 민감한 정보(예: node_modules 폴더, 빌드 결과물)까지 Git 저장소에 포함될 수 있습니다. npm install 후에 생기는 node_modules 폴더는 특히 용량이 크기 때문에 반드시 gitignore에 추가해야 해요.
+
+.gitignore 파일에 다음 내용들을 추가해서 수정해 주세요.
+
+.gitignore 파일 내용 추가
+프로젝트 루트 디렉토리의 .gitignore 파일을 열고 아래 내용을 그대로 복사하여 붙여넣으면 됩니다.
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+.report/
+
+# Node.js
+# See https://github.com/github/gitignore/blob/main/Node.gitignore for a more comprehensive list.
+node_modules/
+dist/
+build/
+.next/
+.cache/
+.eslintcache
+.parcel-cache/
+.rollup.cache/
+.vite/
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.vspscc
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# npm package manager cache
+.npm/
+
+# npm package lock files
+package-lock.json
+# yarn.lock # If you're using yarn, uncomment this
+# pnpm-lock.yaml # If you're using pnpm, uncomment this
+
+# ReSharper artifacts
+_ReSharper.*/
+*.[Rr]eSharper
+*.DotSettings.user
+
+# Mac VSCode cache
+.vscode-test/
+
+# Other
+coverage/
+.DS_Store
