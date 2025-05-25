@@ -7,11 +7,11 @@ const BUTTON_OFFSETS = {
     'A': 0x4C, 'B': 0x50, 'X': 0x54, 'Y': 0x58,
     'LB': 0x5C, 'RB': 0x60, 'LT': 0x64, 'RT': 0x68,
     'L3': 0x6C, 'R3': 0x70, 'BACK': 0x74, 'MENU': 0x78,
-    'HOME': 0x80, 'UP_ARROW': 0x84, 'DOWN_ARROW': 0x88, 'LEFT_ARROW': 0x8C, 'RIGHT_ARROW': 0x90,
+    'HOME': 0x80, 'UP DPAD': 0x84, 'DOWN DPAD': 0x88, 'LEFT DPAD': 0x8C, 'RIGHT DPAD': 0x90,
     'PR': 0x94, 'PL': 0x98, 'L4': 0x9C, 'R4': 0xA0
 };
 
-// 각 액션에 해당하는 4바이트 16진수 값 (Little Endian으로 해석)
+// 각 액션에 해당하는 4바이트 16진수 값 (Big Endian으로 해석)
 // 이 값들은 비트 OR 연산으로 조합될 수 있습니다.
 const ACTION_MAP = {
     'Y': 0x20000000,
@@ -48,11 +48,11 @@ function parseBinaryConfig(uint8Array) {
             config[buttonName] = []; // 빈 배열로 처리
             continue;
         }
-        const value = dataView.getUint32(offset, true); // 4바이트, Little Endian으로 읽기
+        const value = dataView.getUint32(offset, false); // 4바이트, Big Endian으로 읽기
         const mappedActions = [];
         for (const actionName in ACTION_MAP) {
             const actionValue = ACTION_MAP[actionName];
-            if ((value & actionValue) === actionValue) {
+            if (((value >>> 0) & (actionValue >>> 0)) === (actionValue >>> 0)) {
                 mappedActions.push(actionName);
             }
         }
@@ -78,7 +78,7 @@ function createBinaryConfig(configJson, originalUint8Array) {
                     }
                 }
             }
-            newDataView.setUint32(offset, newValue, true); // 4바이트, Little Endian으로 쓰기
+            newDataView.setUint32(offset, newValue, false); // 4바이트, Big Endian으로 쓰기
         }
     }
     return newUint8Array;
